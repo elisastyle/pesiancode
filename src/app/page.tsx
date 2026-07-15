@@ -1,65 +1,81 @@
-import Image from "next/image";
+import Link from "next/link";
+
+<span>
+  <Link href="/login" className="hover:text-white transition">
+    Login
+  </Link>
+</span>
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="font-sans bg-[#0f172a] text-white">
+
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-10 py-6">
+        <h1 className="text-2xl font-bold">Hostinger Clone</h1>
+        <div className="flex gap-8 text-gray-300">
+          <span>Web Hosting</span>
+          <span>VPS Hosting</span>
+          <span>Domain</span>
+         <span>
+  <Link href="/login" className="hover:text-white transition">
+    Login
+  </Link>
+</span>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="text-center py-24">
+        <h2 className="text-5xl font-bold mb-4">
+          From idea to online success
+        </h2>
+        <p className="text-gray-300 mb-8">
+          Build your website with fast, secure hosting.
+        </p>
+        <button className="px-8 py-4 bg-purple-600 rounded-lg text-lg font-semibold">
+          Get Started
+        </button>
+      </section>
+
+      {/* Plans */}
+      <section className="grid grid-cols-1 md:grid-cols-4 gap-6 px-10 py-20">
+        {[
+          { title: "Web Hosting", price: "$2.99/mo" },
+          { title: "Cloud Hosting", price: "$9.99/mo" },
+          { title: "VPS Hosting", price: "$4.99/mo" },
+          { title: "WordPress Hosting", price: "$2.99/mo" },
+        ].map((p) => (
+          <div key={p.title} className="bg-[#1e293b] p-6 rounded-xl">
+            <h3 className="text-xl font-bold mb-3">{p.title}</h3>
+            <p className="text-purple-400 text-lg">{p.price}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Brands */}
+      <section className="flex justify-center gap-10 py-10 text-gray-400">
+        {["GitHub", "DHL", "Caterpillar", "Figma"].map((b) => (
+          <span key={b} className="text-xl">{b}</span>
+        ))}
+      </section>
+
+      {/* Testimonials */}
+      <section className="px-10 py-20">
+        <h2 className="text-3xl font-bold mb-10">What our customers say</h2>
+        <div className="bg-[#1e293b] p-6 rounded-xl">
+          <p className="text-gray-300">
+            “Amazing hosting service. Fast, reliable and easy to use.”
           </p>
+          <p className="mt-4 text-purple-400">★★★★★</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-10 text-gray-400">
+        © 2026 Hostinger Clone — Built with Next.js + Tailwind
+      </footer>
+
+    </main>
   );
 }
