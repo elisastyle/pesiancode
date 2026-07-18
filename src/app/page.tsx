@@ -72,9 +72,57 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center py-10 text-gray-400">
-        © 2026 Hostinger Clone — Built with Next.js + Tailwind
-      </footer>
+      <footer className="bg-[#0d1324] text-gray-300 py-14 px-10 mt-20">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    {/* Brand */}
+    <div>
+      <h3 className="text-2xl font-bold mb-4">Hostinger Clone</h3>
+      <p className="text-sm leading-6">
+        Fast, secure and reliable hosting for your websites and projects.
+      </p>
+    </div>
+
+    {/* Hosting */}
+    <div>
+      <h4 className="text-lg font-semibold mb-3">Hosting</h4>
+      <ul className="space-y-2 text-sm">
+        <li className="hover:text-white transition">Web Hosting</li>
+        <li className="hover:text-white transition">Cloud Hosting</li>
+        <li className="hover:text-white transition">VPS Hosting</li>
+        <li className="hover:text-white transition">WordPress Hosting</li>
+      </ul>
+    </div>
+
+    {/* Company */}
+    <div>
+      <h4 className="text-lg font-semibold mb-3">Company</h4>
+      <ul className="space-y-2 text-sm">
+        <li className="hover:text-white transition">About Us</li>
+        <li className="hover:text-white transition">Careers</li>
+        <li className="hover:text-white transition">Blog</li>
+        <li className="hover:text-white transition">Contact</li>
+      </ul>
+    </div>
+
+    {/* Support */}
+    <div>
+      <h4 className="text-lg font-semibold mb-3">Support</h4>
+      <ul className="space-y-2 text-sm">
+        <li className="hover:text-white transition">Help Center</li>
+        <li className="hover:text-white transition">Status</li>
+        <li className="hover:text-white transition">Report Issue</li>
+        <li className="hover:text-white transition">Community</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* Bottom */}
+  <div className="border-t border-white/10 mt-10 pt-6 text-center text-sm text-gray-400">
+    © 2026 Hostinger Clone — Built with Next.js + Tailwind
+  </div>
+</footer>
+
 
     </main>
   );
