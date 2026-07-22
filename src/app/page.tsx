@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 <span>
   <Link href="/login" className="hover:text-white transition">
@@ -7,6 +10,26 @@ import Link from "next/link";
 </span>
 
 export default function Home() {
+  const testimonials = [
+    {
+      text: "Amazing hosting service. Fast, reliable and easy to use.",
+      stars: "★★★★★",
+    },
+    {
+      text: "Great support team! They helped me migrate my website smoothly.",
+      stars: "★★★★★",
+    },
+    {
+      text: "Best pricing and performance. Highly recommended!",
+      stars: "★★★★★",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  const next = () => setIndex((prev) => (prev + 1) % testimonials.length);
+  const prev = () =>
+    setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   return (
     <main className="font-sans bg-[#0f172a] text-white">
 
@@ -20,6 +43,11 @@ export default function Home() {
          <span>
   <Link href="/login" className="hover:text-white transition">
     Login
+  </Link>
+</span>
+<span>
+  <Link href="/contact" className="hover:text-white transition">
+    Contact
   </Link>
 </span>
         </div>
@@ -61,15 +89,35 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="px-10 py-20">
+     <section className="px-10 py-20">
         <h2 className="text-3xl font-bold mb-10">What our customers say</h2>
-        <div className="bg-[#1e293b] p-6 rounded-xl">
-          <p className="text-gray-300">
-            “Amazing hosting service. Fast, reliable and easy to use.”
+
+        <div className="bg-[#1e293b] p-8 rounded-xl text-center">
+          <p className="text-gray-300 text-lg transition-all duration-300">
+            “{testimonials[index].text}”
           </p>
-          <p className="mt-4 text-purple-400">★★★★★</p>
+          <p className="mt-4 text-purple-400 text-xl">
+            {testimonials[index].stars}
+          </p>
+
+          <div className="flex justify-center gap-6 mt-8">
+            <button
+              onClick={prev}
+              className="px-4 py-2 bg-[#0f172a] rounded-lg hover:bg-purple-600 transition"
+            >
+              ◀
+            </button>
+
+            <button
+              onClick={next}
+              className="px-4 py-2 bg-[#0f172a] rounded-lg hover:bg-purple-600 transition"
+            >
+              ▶
+            </button>
+          </div>
         </div>
       </section>
+
 
       {/* Footer */}
       <footer className="bg-[#0d1324] text-gray-300 py-14 px-10 mt-20">
